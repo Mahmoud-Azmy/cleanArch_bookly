@@ -15,6 +15,16 @@ class SearchViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(
+            height: 50,
+          ),
+          Text(
+            'Search',
+            style: Styles.textStyle20,
+          ),
+          SizedBox(
+            height: 20,
+          ),
           CustomSearchTextField(),
           SizedBox(
             height: 16,
@@ -41,6 +51,7 @@ class SearchResultListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      physics: const BouncingScrollPhysics(),
       padding: EdgeInsets.zero,
       itemCount: 10,
       itemBuilder: (context, index) {
