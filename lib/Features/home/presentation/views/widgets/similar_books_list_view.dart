@@ -17,13 +17,13 @@ class SimilarBooksListview extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: GestureDetector(
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: GestureDetector(
                   onTap: (() {
                     GoRouter.of(context).push(AppRouter.kBookDetailsView);
                   }),
-                  child: const CustomBookImage()),
-            );
+                  // child: const CustomBookImage()),
+                ));
           }),
     );
   }
