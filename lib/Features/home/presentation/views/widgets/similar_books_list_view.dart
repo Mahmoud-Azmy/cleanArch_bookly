@@ -22,7 +22,10 @@ class SimilarBooksListview extends StatelessWidget {
                   onTap: (() {
                     GoRouter.of(context).push(AppRouter.kBookDetailsView);
                   }),
-                  // child: const CustomBookImage()),
+                  child: const CustomBookImage(
+                    imageUrl:
+                        'https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRYT2_qpM81JX8FdDi53mc-ZNIGhwVGlDtG5uTuuHU9K6rTaRZqONIPL7tEiwLb8t4D4mBbt0-UL5ijZBU',
+                  ),
                 ));
           }),
     );

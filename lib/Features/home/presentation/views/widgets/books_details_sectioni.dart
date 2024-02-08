@@ -14,12 +14,15 @@ class BookDetailsSection extends StatelessWidget {
 
     return Column(
       children: [
-        // Padding(
-        //   padding: EdgeInsets.symmetric(
-        //     horizontal: width * .2,
-        //   ),
-        //   child: const CustomBookImage(),
-        // ),
+        Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: width * .2,
+          ),
+          child: const CustomBookImage(
+            imageUrl:
+                'https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRYT2_qpM81JX8FdDi53mc-ZNIGhwVGlDtG5uTuuHU9K6rTaRZqONIPL7tEiwLb8t4D4mBbt0-UL5ijZBU',
+          ),
+        ),
         const SizedBox(
           height: 43,
         ),

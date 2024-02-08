@@ -13,7 +13,7 @@ class NewestBooksListViewBlocBuilder extends StatelessWidget {
     return BlocBuilder<FetchNewestBooksCubit, FetchNewestBooksState>(
       builder: (context, state) {
         if (state is FetchNewestBooksSuccess) {
-          return const NewestBooksListView();
+          return NewestBooksListView(newestBooksList: state.books);
         } else if (state is FetchNewestBooksFailure) {
           return Text(state.errMessage);
         }
