@@ -17,12 +17,13 @@ class HomeRepoImpl extends HomeRepo {
       {int pageNumber = 0}) async {
     try {
       List<BookEntity> books;
-      // books = homeLocalDataSource.fetchFeaturedBooks();
+      books = homeLocalDataSource.fetchFeaturedBooks(pageNumber: pageNumber);
 
-      // if (books.isNotEmpty) {
-      //   return right(books);
-      // }
-      books = await homeRemoteDataSourec.fetchFeaturedBooks();
+      if (books.isNotEmpty) {
+        return right(books);
+      }
+      books =
+          await homeRemoteDataSourec.fetchFeaturedBooks(pageNumber: pageNumber);
       return right(books);
     } catch (e) {
       if (e is DioException) {
@@ -37,10 +38,10 @@ class HomeRepoImpl extends HomeRepo {
   Future<Either<Failure, List<BookEntity>>> fetchNewestBooks() async {
     try {
       List<BookEntity> books;
-      // books = homeLocalDataSource.fetchNewestBooks();
-      // if (books.isNotEmpty) {
-      //   return right(books);
-      // }
+      books = homeLocalDataSource.fetchNewestBooks();
+      if (books.isNotEmpty) {
+        return right(books);
+      }
       books = await homeRemoteDataSourec.fetchNewestBooks();
       return right(books);
     } catch (e) {
