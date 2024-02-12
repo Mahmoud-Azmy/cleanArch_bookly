@@ -29,6 +29,12 @@ class BookListViewItem extends StatelessWidget {
                 child: CachedNetworkImage(
                   imageUrl: bookEntity.image ?? '',
                   fit: BoxFit.fill,
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      Center(
+                    child: CircularProgressIndicator(
+                        value: downloadProgress.progress),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),

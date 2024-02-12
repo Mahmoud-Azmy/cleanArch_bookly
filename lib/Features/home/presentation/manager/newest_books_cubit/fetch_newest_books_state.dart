@@ -5,6 +5,14 @@ abstract class FetchNewestBooksState {}
 
 class FetchNewestBooksInitial extends FetchNewestBooksState {}
 
+class FetchNewestBooksPaginationLoading extends FetchNewestBooksState {}
+
+class FetchNewestBooksPaginationFailure extends FetchNewestBooksState {
+  final String errMessage;
+
+  FetchNewestBooksPaginationFailure(this.errMessage);
+}
+
 class FetchNewestBooksLoading extends FetchNewestBooksState {}
 
 class FetchNewestBooksFailure extends FetchNewestBooksState {
