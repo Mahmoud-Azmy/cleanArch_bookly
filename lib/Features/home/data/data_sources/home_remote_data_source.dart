@@ -7,6 +7,8 @@ import 'package:bookly/core/utils/api_service.dart';
 abstract class HomeRemoteDataSourec {
   Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0});
   Future<List<BookEntity>> fetchNewestBooks({int pageNumber = 0});
+  Future<List<BookEntity>> fetchRelativeBooks(
+      {int pageNumber = 0, String category});
 }
 
 class HomeRemoteDataSourecImpl extends HomeRemoteDataSourec {
@@ -17,7 +19,7 @@ class HomeRemoteDataSourecImpl extends HomeRemoteDataSourec {
   Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0}) async {
     var data = await apiService.get(
         endPoint:
-            'volumes?Filtering=free-ebooks&q=history&startIndex=${pageNumber * 10}');
+            'volumes?Filtering=free-ebooks&q=programming&startIndex=${pageNumber * 10}');
     List<BookEntity> books = getBooksList(data);
     saveBooksData(books, kFeaturedBox);
     return books;
@@ -30,6 +32,16 @@ class HomeRemoteDataSourecImpl extends HomeRemoteDataSourec {
             'volumes?Filtering=free-ebooks&q=physics&sorting=newest&startIndex=${pageNumber * 10}');
     List<BookEntity> books = getBooksList(data);
     saveBooksData(books, kNewestBox);
+    return books;
+  }
+
+  @override
+  Future<List<BookEntity>> fetchRelativeBooks(
+      {int pageNumber = 0, String? category}) async {
+    var data = await apiService.get(
+        endPoint:
+            'volumes?Filtering=free-ebooks&q=subject:$category&Sorting=relevance&startIndex=${pageNumber * 10}');
+    List<BookEntity> books = getBooksList(data);
     return books;
   }
 

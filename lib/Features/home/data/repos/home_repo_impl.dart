@@ -54,4 +54,19 @@ class HomeRepoImpl extends HomeRepo {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, List<BookEntity>>> fetchRelativeBooks(
+      {int pageNumber = 0, String? category}) async {
+    try {
+      List<BookEntity> books = await homeRemoteDataSourec.fetchRelativeBooks(
+          category: category ?? 'programming', pageNumber: pageNumber);
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }
