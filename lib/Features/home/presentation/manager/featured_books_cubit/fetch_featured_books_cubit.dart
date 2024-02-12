@@ -8,7 +8,6 @@ part 'fetch_featured_books_state.dart';
 class FetchFeaturedBooksCubit extends Cubit<FetchFeaturedBooksState> {
   FetchFeaturedBooksCubit(this.fetchFeaturedBooksUseCase)
       : super(FetchFeaturedBooksInitial());
-  static FetchFeaturedBooksCubit get(context) => BlocProvider.of(context);
   final FetchFeaturedBooksUseCase fetchFeaturedBooksUseCase;
   Future<void> fetchFeaturedBooks({int pageNumber = 0}) async {
     if (pageNumber == 0) {
