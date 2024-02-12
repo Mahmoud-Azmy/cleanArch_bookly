@@ -1,5 +1,6 @@
 import 'package:bookly/Features/home/domain/entities/book_entity.dart';
 import 'package:bookly/Features/home/presentation/manager/featured_books_cubit/fetch_featured_books_cubit.dart';
+import 'package:bookly/Features/home/presentation/views/widgets/featured_Books_loading.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,9 +31,7 @@ class _FeaturedBooksListViewBlocBuilderState
           state is FetchFeaturedBooksPaginationFailure) {
         return FeaturedBooksListView(books: books);
       }
-      return const Center(
-        child: CircularProgressIndicator(),
-      );
+      return const FeaturedBooksloading();
     });
   }
 }
