@@ -1,6 +1,8 @@
 import 'package:bookly/Features/home/domain/entities/book_entity.dart';
 import 'package:bookly/Features/home/presentation/manager/newest_books_cubit/fetch_newest_books_cubit.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/newest_books_list_view.dart';
+import 'package:bookly/Features/home/presentation/views/widgets/newest_books_list_view_loading.dart';
+import 'package:bookly/Features/home/presentation/views/widgets/newest_books_list_view_loading_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,7 +35,7 @@ class _NewestBooksListViewBlocBuilderState
         } else if (state is FetchNewestBooksFailure) {
           return Text(state.errMessage);
         }
-        return const Center(child: CircularProgressIndicator());
+        return const NewestBooksLoadingListView();
       },
     );
   }
