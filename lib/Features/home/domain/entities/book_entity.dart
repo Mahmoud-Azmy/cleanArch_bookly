@@ -15,13 +15,15 @@ class BookEntity {
   final num? price;
   @HiveField(5)
   final num? rating;
+  @HiveField(6)
+  final List<dynamic>? categories;
 
-  BookEntity({
-    required this.bookId,
-    required this.image,
-    required this.title,
-    required this.authorName,
-    required this.price,
-    required this.rating,
-  });
+  BookEntity(
+      {required this.bookId,
+      required this.image,
+      required this.title,
+      required this.authorName,
+      required this.price,
+      required this.rating,
+      required this.categories});
 }
