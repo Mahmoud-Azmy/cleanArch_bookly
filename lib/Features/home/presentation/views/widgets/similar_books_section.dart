@@ -1,11 +1,11 @@
-import 'package:bookly/Features/home/presentation/views/widgets/similar_books_list_view.dart';
+import 'package:bookly/Features/home/presentation/views/widgets/similar_books_list_view_bloc_builder.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
 
 class SimilarBooksSection extends StatelessWidget {
-  const SimilarBooksSection({super.key});
-
+  const SimilarBooksSection({super.key, this.category});
+  final String? category;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,7 +20,9 @@ class SimilarBooksSection extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        const SimilarBooksListview(),
+        SimilarBooksListViewBlocBuilder(
+          category: category,
+        ),
       ],
     );
   }

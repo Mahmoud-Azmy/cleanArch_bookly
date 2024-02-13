@@ -34,9 +34,11 @@ class BookDetailsViewBody extends StatelessWidget {
                         height: 50,
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 30),
-                      child: SimilarBooksSection(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      child: SimilarBooksSection(
+                        category: bookEntity.category?[0],
+                      ),
                     ),
                     const SizedBox(
                       height: 40,
